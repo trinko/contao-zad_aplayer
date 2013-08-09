@@ -1,0 +1,324 @@
+/***  Zad Accessible Player - A Contao CMS extension  ::  Copyright (C) 2011 by Antonello Dessi'  ::  License LGPL  ***/
+
+
+/*** player container ***/
+.zad_aplayer {
+  display: block;
+  background-color: #555555;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/*** controlbar container ***/
+.zad_aplayer_controls {
+  display: none;
+	position: relative;
+	height: 25px;
+  background-color: #999999;	
+	background-image: url('controlbar.gif'); 
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  color: #000000;	
+}
+
+/*** play button ***/
+.zad_aplayer_controls a.play {         
+	position: absolute;
+  top: 0;	
+  left: 0;	
+	display: block;
+	width: 25px;
+	height: 25px;	
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -25px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls a.play:hover, .zad_aplayer_controls a.play:focus {
+  background-position: 0 -50px;
+}
+
+/*** pause button ***/
+.zad_aplayer_controls a.pause { 
+	position: absolute;
+  top: 0;	
+  left: 0;	
+	display: block;
+	width: 25px;
+	height: 25px;	
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -75px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls a.pause:hover, .zad_aplayer_controls a.pause:focus {
+  background-position: 0 -100px;
+}
+
+/*** timeline ***/
+.zad_aplayer_controls .track {  
+	position:absolute;
+  top: 0;	
+  left: 25px;
+	height: 25px;
+  margin: 0 5px;	
+	cursor: pointer;
+	background-image: url('controlbar.gif'); 
+  background-repeat: repeat-x;
+  background-position: 0 -125px;
+}
+
+/*** buffer bar ***/
+.zad_aplayer_controls .buffer {
+	position:absolute;
+  top: 9px;	
+  left: 0;
+	width: 0px;
+	height: 6px;
+	background-color:#666666;
+}
+
+/*** progress bar ***/
+.zad_aplayer_controls .progress {
+	position: absolute;
+  top: 9px;	
+  left: 0;
+	width: 0px;
+	height: 6px;
+	background-color:#FFFFFF;
+}
+
+/*** playhead button ***/
+.zad_aplayer_controls .playhead {
+	position: absolute;
+	display: block;
+	border: none;
+  top: 0px;	
+  left: 0px;	
+	width: 18px;
+	height: 25px;
+	cursor: pointer;
+  background-color: transparent; 
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -150px;
+}
+.zad_aplayer_controls .playhead:hover, .zad_aplayer_controls .playhead:focus {
+  background-position: 0 -175px;
+}
+
+/*** time display ***/
+.zad_aplayer_controls .time {
+	position: absolute;
+  top: 0;	
+  right: 75px;
+  padding-top: 4px;  
+  text-align: center;
+	font-family: Tahoma,Arial,Helvetica,sans-serif;	
+	font-size: 12px;
+	color:#FFFFFF;
+}
+.zad_aplayer_controls .time strong {
+	font-weight: normal;
+	color: #000099;
+}
+
+/*** volume-mute button ***/
+.zad_aplayer_controls .volumeMute { 
+	position: absolute;	
+  top: 0;	
+  right: 50px;
+	display: block;
+	border: none;
+	width: 25px;
+	height: 25px;
+  cursor: pointer;	
+  background-color: transparent; 
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -200px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls .volumeMute:hover, .zad_aplayer_controls .volumeMute:focus {
+  background-position: 0 -225px;
+}
+
+/*** volume-low button ***/
+.zad_aplayer_controls .volumeLow { 
+	position: absolute;	
+  top: 0;	
+  right: 50px;
+	display: block;
+	border: none;
+	width: 25px;
+	height: 25px;
+  cursor: pointer;	
+  background-color: transparent; 
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -250px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls .volumeLow:hover, .zad_aplayer_controls .volumeLow:focus {
+  background-position: 0 -275px;
+}
+
+/*** volume-medium button ***/
+.zad_aplayer_controls .volumeMedium, .zad_aplayer_controls .volume { 
+	position: absolute;	
+  top: 0;	
+  right: 50px;
+	display: block;
+	border: none;
+	width: 25px;
+	height: 25px;
+  cursor: pointer;	
+  background-color: transparent; 
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -300px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls .volumeMedium:hover, .zad_aplayer_controls .volumeMedium:focus {
+  background-position: 0 -325px;
+}
+
+/*** volume-max button ***/
+.zad_aplayer_controls .volumeHigh { 
+	position: absolute;	
+  top: 0;	
+  right: 50px;
+	display: block;
+	border: none;
+	width: 25px;
+	height: 25px;
+  cursor: pointer;	
+  background-color: transparent; 
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -350px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls .volumeHigh:hover, .zad_aplayer_controls .volumeHigh:focus {
+  background-position: 0 -375px;
+}
+
+/*** enable full-screen button ***/
+.zad_aplayer_controls a.fullscreen { 
+	position: absolute;	
+  top: 0;	
+  right: 25px;
+	display: block;
+	width: 25px;
+	height: 25px;	
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -400px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls a.fullscreen:hover, .zad_aplayer_controls a.fullscreen:focus {
+  background-position: 0 -425px;
+}
+
+/*** disable full-screen button ***/
+.zad_aplayer_controls a.normalscreen { 
+	position: absolute;	
+  top: 0;	
+  right: 25px;
+	display: block;
+	width: 25px;
+	height: 25px;	
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -450px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls a.normalscreen:hover, .zad_aplayer_controls a.normalscreen:focus {
+  background-position: 0 -475px;
+}
+
+/*** captions-on button ***/
+.zad_aplayer_controls a.captions { 
+	position: absolute;	
+  top: 0;	
+  right: 0;
+	display: block;
+	width: 25px;
+	height: 25px;	
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -500px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls a.captions:hover, .zad_aplayer_controls a.captions:focus {
+  background-position: 0 -525px;
+}
+
+/*** captions-off button ***/
+.zad_aplayer_controls a.captionsOff { 
+	position: absolute;	
+  top: 0;	
+  right: 0;
+	display: block;
+	width: 25px;
+	height: 25px;	
+	background-image: url('controlbar.gif'); 
+  background-repeat: no-repeat;
+  background-position: 0 -550px;
+	text-indent: -9999em;
+}
+.zad_aplayer_controls a.captionsOff:hover, .zad_aplayer_controls a.captionsOff:focus {
+  background-position: 0 -575px;
+}
+
+/*** help tips ***/
+.zad_aplayer_controls .help {
+  display: none; 
+  position: absolute;
+  bottom: 0px;
+  right: -332px;
+  width: 300px;
+  height: auto;
+  z-index: 5;
+  border: 6px double #000000;
+  padding: 5px 10px;
+	font-family: Tahoma,Arial,Helvetica,sans-serif;	
+	font-size: 12px;
+  background-color: #555555;
+	background-image: none; 
+  color: #FFFFFF;
+  text-align: left;
+  text-indent: 0;
+}
+
+/*** error message ***/
+p.zad_aplayer_error {
+  padding: 10px 20px;
+  font-size: 100%;
+  font-weight: bold;
+}
+a.zad_aplayer_error {
+  display: block;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: bold;
+  background-color: #555555;
+  color: #FF0000;
+}
+a.zad_aplayer_error:hover {
+  background-color: #555555;
+  color: #FFFFFF;
+}
+
+/*** overlay for full screen mode ***/
+.zad_aplayer_overlay {
+  display: none;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 100;
+  background-color: #000000;
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filters: alpha(opacity=70);
+}

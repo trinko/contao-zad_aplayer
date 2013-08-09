@@ -1,0 +1,8 @@
+Version 2.0.0 beta
+------------------
+* Changed: new version for contao 3.x compatibility.
+* Changed: updated Flowplayer and Flowplayer Plugin versions.
+
+Version 1.0.0 stable
+--------------------
+* First stable release.

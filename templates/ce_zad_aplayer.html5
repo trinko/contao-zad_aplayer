@@ -1,0 +1,71 @@
+
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<?php if ($this->headline): ?><<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>><?php endif; ?>
+<!-- indexer::stop -->
+
+<div id="zad_aplayer_<?php echo $this->id; ?>" style="width:<?php echo $this->width; ?>px;height:auto;" class="zad_aplayer">
+<p class="zad_aplayer_error"><?php echo $this->err_javascript; ?></p>
+<p><a class="zad_aplayer_error" href="<?php echo $this->media; ?>"><?php echo $this->err_download; ?></a></p>
+</div>
+<div id="zad_aplayer_controls_<?php echo $this->id; ?>" class="zad_aplayer_controls"></div>
+
+<script>
+  var id = document.getElementById('zad_aplayer_<?php echo $this->id; ?>');
+  id.innerHTML = '';
+  if (window.flashembed.isSupported([10,1])) {
+    id.innerHTML = '<?php if ($this->preview && !$this->is_audio): ?><img src="<?php echo $this->preview_img; ?>" style="width:100%;height:100%;" alt="<?php echo $this->preview_alt; ?>" title="<?php echo $this->preview_alt; ?>" /><?php endif; ?>';
+    id.style.height = '<?php echo $this->height; ?>px';
+  	$f(id, 'system/modules/zad_aplayer/vendor/flowplayer/flowplayer-3.2.16.swf', {
+  		clip: {
+  		  url: '<?php echo $this->media; ?>',
+        <?php if ($this->captions): ?>captionUrl: '<?php echo $this->capfile; ?>',<?php endif; ?>
+        <?php if ($this->preview && $this->is_audio): ?>coverImage: { url: '<?php echo $this->preview_img; ?>' },<?php endif; ?>
+  			autoPlay: <?php echo ($this->autoplay ? 'true' : 'false'); ?>,
+  			autoBuffering: true
+  		},
+  	  play: {
+  	    label: null,
+  	    replayLabel: null
+      },
+  		plugins: {
+<?php if ($this->is_audio): ?>
+        audio: {
+            url: 'system/modules/zad_aplayer/vendor/flowplayer.audio/flowplayer.audio-3.2.10.swf'
+        },
+<?php endif; ?>
+<?php if ($this->captions): ?>
+  		  captions: {
+    			url: 'system/modules/zad_aplayer/vendor/flowplayer.captions/flowplayer.captions-3.2.9.swf',
+    			captionTarget: 'captionsContent',
+    			button: null
+  		  },
+    		captionsContent: {
+    			url: 'system/modules/zad_aplayer/vendor/flowplayer.content/flowplayer.content-3.2.8.swf',
+    			bottom: 5,
+    			height: 40,
+    			backgroundColor: 'transparent',
+    			backgroundGradient: 'none',
+    			border: 0,
+          textDecoration: 'outline',
+    			style: {
+  				  body: {
+  					  fontSize: 14,
+  					  fontFamily: 'Arial',
+  					  textAlign: 'center',
+  					  color: '#ffffff'
+  				  }
+    			}
+    		},
+<?php endif; ?>
+        controls: null
+      }
+  	}).accessibleControls('zad_aplayer_controls_<?php echo $this->id; ?>', { <?php echo $this->options; ?> }, { enable:false } );
+  } else {
+    id.innerHTML =
+      '<p class="zad_aplayer_error"><?php echo $this->err_flash; ?></p>' +
+      '<a class="zad_aplayer_error" href="http://www.adobe.com/go/getflashplayer"><?php echo $this->err_flash_download; ?></a>';
+  }
+</script>
+
+<!-- indexer::continue -->
+</div>
