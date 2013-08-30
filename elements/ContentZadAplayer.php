@@ -62,7 +62,7 @@ class ContentZadAplayer extends \ContentElement {
     $media = null;
 		$media_list = deserialize($this->playerSRC);
     if (($media_file = \FilesModel::findByPk($media_list[0])) !== null) {
-      $media = $media_file->path;
+      $media = \Environment::get('base') . $media_file->path;
       $is_audio = ($media_file->extension == 'mp3');
     }
     // set the size
