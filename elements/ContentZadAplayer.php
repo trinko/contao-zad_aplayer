@@ -80,7 +80,7 @@ class ContentZadAplayer extends \ContentElement {
     $image = null;
     if ($this->posterSRC != '') {
 			if (($image_file = \FilesModel::findByPk($this->posterSRC)) !== null) {
-				$image = $image_file->path;
+				$image = \Environment::get('base') . $image_file->path;
         $preview = true;
 			}
 		}
@@ -89,7 +89,7 @@ class ContentZadAplayer extends \ContentElement {
     $capfile = null;
     if ($this->zad_aplayer_capfile != '') {
 			if (($captions_file = \FilesModel::findByPk($this->zad_aplayer_capfile)) !== null) {
-				$capfile = $captions_file->path;
+				$capfile = \Environment::get('base') . $captions_file->path;
         $captions = true;
 			}
 		}
