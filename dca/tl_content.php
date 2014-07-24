@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['zad_aplayer_capfile'] = array(
 	'exclude'                 => true,
 	'inputType'               => 'fileTree',
 	'eval'                    => array('fieldType'=>'radio', 'filesOnly'=>true, 'extensions'=>'srt,xml'),
-  'sql'                     => "varchar(255) NOT NULL default ''"
+  'sql'                     => "binary(16) NULL"
 );
 
 /**
